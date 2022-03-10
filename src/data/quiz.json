@@ -1,0 +1,290 @@
+{
+  "data": [
+    {
+      "question": " JSON elements are separated by the ___.",
+      "choices": [
+        {
+          "id": 1,
+          "label": "line break",
+          "value": "line-break"
+        },
+        {
+          "id": 2,
+          "label": "semi-colon",
+          "value": "semi-colon"
+        },
+        {
+          "id": 3,
+          "label": "comma",
+          "value": "comma"
+        },
+        {
+          "id": 4,
+          "label": "white space",
+          "value": "white space"
+        }
+      ],
+      "answer": "comma"
+    },
+    {
+      "question": "A _____ indicates an absent value that may exist but be unknown or that may not exist at all.",
+      "choices": [
+        {
+          "id": 1,
+          "label": "Empty tuple",
+          "value": "empty-tuple"
+        },
+        {
+          "id": 2,
+          "label": "New value",
+          "value": "new-value"
+        },
+        {
+          "id": 3,
+          "label": "Null value",
+          "value": "null-value"
+        },
+        {
+          "id": 4,
+          "label": "Old value",
+          "value": "old-value"
+        }
+      ],
+      "answer": "null-value"
+    },
+    {
+      "question": "JSON stands for ________________",
+      "choices": [
+        {
+          "id": 1,
+          "label": "Java Standard Output Network",
+          "value": "java-standard-output-network"
+        },
+        {
+          "id": 2,
+          "label": "JavaScript Object Notation",
+          "value": "javaScript-object-notation"
+        },
+        {
+          "id": 3,
+          "label": "JavaScript Output Name",
+          "value": "javaScript-output-name"
+        },
+        {
+          "id": 4,
+          "label": "Java Source Open Network",
+          "value": "java-source-open-network"
+        }
+      ],
+      "answer": "javaScript-object-notation"
+    },
+    {
+      "question": "Which of the following is not a type in JSON?",
+      "choices": [
+        {
+          "id": 1,
+          "label": "date",
+          "value": "date"
+        },
+        {
+          "id": 2,
+          "label": "Object",
+          "value": "object"
+        },
+        {
+          "id": 3,
+          "label": "Array",
+          "value": "array"
+        },
+        {
+          "id": 4,
+          "label": "string",
+          "value": "string"
+        }
+      ],
+      "answer": "date"
+    },
+    {
+      "question": "What are two main structures compose JSON?",
+      "choices": [
+        {
+          "id": 1,
+          "label": "Arrays and Objects",
+          "value": "arrays-and-objects"
+        },
+        {
+          "id": 2,
+          "label": "Keys and values",
+          "value": "keys-and-values"
+        },
+        {
+          "id": 3,
+          "label": "Class and Objects",
+          "value": "class-and-objects"
+        },
+        {
+          "id": 4,
+          "label": "None of above",
+          "value": "none-of-above"
+        }
+      ],
+      "answer": "keys-and-values"
+    },
+    {
+      "question": "Which of the following Protocol services uses JSON?",
+      "choices": [
+        {
+          "id": 1,
+          "label": "SMTP",
+          "value": "SMTP"
+        },
+        {
+          "id": 2,
+          "label": "HTTP",
+          "value": "HTTP"
+        },
+        {
+          "id": 3,
+          "label": "TCP/IP",
+          "value": "TCP/IP"
+        },
+        {
+          "id": 4,
+          "label": "Web Protocol",
+          "value": "web-protocol"
+        }
+      ],
+      "answer": "HTTP"
+    },
+    {
+      "question": "JSON is derived from the ______ programming language?",
+      "choices": [
+        {
+          "id": 1,
+          "label": "Java",
+          "value": "java"
+        },
+        {
+          "id": 2,
+          "label": "ECMScript",
+          "value": "ECMScript"
+        },
+        {
+          "id": 3,
+          "label": "PHP",
+          "value": "php"
+        },
+        {
+          "id": 4,
+          "label": "JavaScript",
+          "value": "javascript"
+        }
+      ],
+      "answer": "javascript"
+    },
+    {
+      "question": "Which of the following JSON feature ensures communication between two applications designed in different programming languages?",
+      "choices": [
+        {
+          "id": 1,
+          "label": "Extensibility",
+          "value": "Extensibility"
+        },
+        {
+          "id": 2,
+          "label": "Scalability",
+          "value": "Scalability"
+        },
+        {
+          "id": 3,
+          "label": "Interoperability",
+          "value": "Interoperability"
+        },
+        {
+          "id": 4,
+          "label": "Reusability",
+          "value": "Reusability"
+        }
+      ],
+      "answer": "Interoperability"
+    },
+    {
+      "question": "What is the MIME type of JSON?",
+      "choices": [
+        {
+          "id": 1,
+          "label": "application/x-json",
+          "value": "application/x-json"
+        },
+        {
+          "id": 2,
+          "label": "text/json",
+          "value": "text/json"
+        },
+        {
+          "id": 3,
+          "label": "application/json",
+          "value": "application/json"
+        },
+        {
+          "id": 4,
+          "label": "application/javascript",
+          "value": "application/javascript"
+        }
+      ],
+      "answer": "application/json"
+    },
+    {
+      "question": "Which of these is supported as a JSON Value type?",
+      "choices": [
+        {
+          "id": 1,
+          "label": "Infiniti",
+          "value": "Infiniti"
+        },
+        {
+          "id": 2,
+          "label": "Null",
+          "value": "Null"
+        },
+        {
+          "id": 3,
+          "label": "Undefined",
+          "value": "Undefined"
+        },
+        {
+          "id": 4,
+          "label": "NaN",
+          "value": "NaN"
+        }
+      ],
+      "answer": "Null"
+    },
+    {
+      "question": "Which is the file extension of JSON?",
+      "choices": [
+        {
+          "id": 1,
+          "label": ".jsn",
+          "value": ".jsn"
+        },
+        {
+          "id": 2,
+          "label": ".js",
+          "value": ".js"
+        },
+        {
+          "id": 3,
+          "label": ".json",
+          "value": ".json"
+        },
+        {
+          "id": 4,
+          "label": ".jxn",
+          "value": ".jxn"
+        }
+      ],
+      "answer": ".json"
+    }
+  ]
+}
