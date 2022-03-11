@@ -77,7 +77,7 @@ function End({ results, data, time }) {
               <Grid container spacing={2} sx={{ my: 4 }}>
                 <Grid item xs={12}>
                   <Typography variant="h5" textAlign={"center"}>
-                    Overall: {Math.ceil((correctAnswers * 100) / 12) + "%"}
+                    Overall: {Math.ceil((correctAnswers * 100) / 11) + "%"}
                   </Typography>
                 </Grid>
                 <Grid item xs={6}>
