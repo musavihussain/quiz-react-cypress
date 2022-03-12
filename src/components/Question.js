@@ -24,6 +24,7 @@ function Question({
   const [selected, setSelected] = useState("");
   const [counter, setCounter] = useState(15);
   const [timerColor, setTimerColor] = useState("black");
+  const [addMoreTime, setAddMoreTime] = useState(true);
 
   const changeHandler = (event) => {
     setSelected(event.target.value);
@@ -43,6 +44,11 @@ function Question({
     } else {
       onSetStep(3);
     }
+  };
+
+  const addTenSecond = () => {
+    setCounter(counter + 10);
+    setAddMoreTime(false);
   };
 
   useEffect(() => {
@@ -69,6 +75,15 @@ function Question({
         <Grid item xs={4}>
           <Card>
             <CardContent>
+            {addMoreTime && <Button
+                variant="contained"
+                color="secondary"
+                size="small"
+                onClick={addTenSecond}
+                sx={{float:"right"}}
+              >
+                Add Time
+              </Button>}
               <div
                 id="timer"
                 style={{
@@ -81,7 +96,9 @@ function Question({
               >
                 <AccessAlarmsIcon sx={{ mr: 1 }} />
                 Remaining Time: {counter}
+                
               </div>
+              
               <FormControl fullWidth>
                 <FormLabel id="quiz-question">{data.question}</FormLabel>
                 <RadioGroup defaultValue="" onChange={changeHandler}>
