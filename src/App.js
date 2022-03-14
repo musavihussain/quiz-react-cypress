@@ -9,8 +9,8 @@ function App() {
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [time, setTime] = useState(15);
   const [quizData, setQuizData] = useState([]);
+  const [showOptionRemoval, setShowOptionRemoval] = useState(true);
 
   const fetchQuizData = () => {
     // fetch from json file
@@ -28,6 +28,31 @@ function App() {
     setStep(2);
   };
 
+  const twoOptionRemovalHandler = () => {
+    const questions = quizData;
+    const currentQuestion = quizData[activeQuestion];
+    let i = 0;
+    const filteredChoices = quizData[activeQuestion].choices.filter((item) => {
+      if (quizData[activeQuestion].answer !== item.value && i < 2) {
+        i++;
+        return false;
+      } else {
+        return true;
+      }
+    });
+
+    currentQuestion.choices = filteredChoices;
+    const mergedData = questions.map((item) => {
+      if (item.question === currentQuestion.question) {
+        return (item = currentQuestion);
+      } else {
+        return item;
+      }
+    });
+    setQuizData(mergedData);
+    setShowOptionRemoval(false);
+  };
+
   useEffect(() => {
     fetchQuizData();
   }, []);
@@ -37,6 +62,8 @@ function App() {
       {step === 1 && <Start onQuizStart={quizStartHandler} />}
       {step === 2 && (
         <Question
+          onRemoveWrongAnswers={twoOptionRemovalHandler}
+          showOptionRemoval={showOptionRemoval}
           data={quizData[activeQuestion]}
           onAnswerUpdate={setAnswers}
           numberOfQuestions={quizData.length}
@@ -45,7 +72,7 @@ function App() {
           onSetStep={setStep}
         />
       )}
-      {step === 3 && <End results={answers} data={quizData} time={time} />}
+      {step === 3 && <End results={answers} data={quizData} />}
     </>
   );
 }

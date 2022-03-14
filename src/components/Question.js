@@ -12,15 +12,9 @@ import {
   Radio,
 } from "@mui/material";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
+import { Box } from "@mui/system";
 
-function Question({
-  data,
-  onAnswerUpdate,
-  numberOfQuestions,
-  activeQuestion,
-  onSetActiveQuestion,
-  onSetStep,
-}) {
+function Question(props) {
   const [selected, setSelected] = useState("");
   const [counter, setCounter] = useState(15);
   const [timerColor, setTimerColor] = useState("black");
@@ -31,29 +25,26 @@ function Question({
   };
 
   const nextClickHandler = () => {
-    onAnswerUpdate((prevState) => [
+    props.onAnswerUpdate((prevState) => [
       ...prevState,
-      { q: data.question, a: selected },
+      { q: props.data.question, a: selected },
     ]);
-    console.log("number of questions", numberOfQuestions);
     setSelected("");
-    if (activeQuestion < numberOfQuestions - 1) {
+    if (props.activeQuestion < props.numberOfQuestions - 1) {
       setCounter(15);
-      onSetActiveQuestion(activeQuestion + 1);
-      console.log("active question", activeQuestion);
+      props.onSetActiveQuestion(props.activeQuestion + 1);
     } else {
-      onSetStep(3);
+      props.onSetStep(3);
     }
   };
 
-  const addTenSecond = () => {
+  const addTenSecondHandler = () => {
     setCounter(counter + 10);
     setAddMoreTime(false);
   };
 
   useEffect(() => {
     if (counter === 0) {
-      console.log("counter is zero now");
       nextClickHandler();
     }
     if (counter < 6) {
@@ -75,15 +66,34 @@ function Question({
         <Grid item xs={4}>
           <Card>
             <CardContent>
-            {addMoreTime && <Button
-                variant="contained"
-                color="secondary"
-                size="small"
-                onClick={addTenSecond}
-                sx={{float:"right"}}
-              >
-                Add Time
-              </Button>}
+              <Box sx={{ display: "flex", mb: 3 }}>
+                <div>
+                  {props.showOptionRemoval && (
+                    <Button
+                      onClick={props.onRemoveWrongAnswers}
+                      variant="contained"
+                      color="primary"
+                      size="small"
+                      sx={{ mr: 2 }}
+                    >
+                      Remove 2 wrong options
+                    </Button>
+                  )}
+                </div>
+                <div>
+                  {addMoreTime && (
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      size="small"
+                      onClick={addTenSecondHandler}
+                    >
+                      Add Time
+                    </Button>
+                  )}
+                </div>
+              </Box>
+
               <div
                 id="timer"
                 style={{
@@ -96,13 +106,15 @@ function Question({
               >
                 <AccessAlarmsIcon sx={{ mr: 1 }} />
                 Remaining Time: {counter}
-                
               </div>
-              
+
               <FormControl fullWidth>
-                <FormLabel id="quiz-question">{data.question}</FormLabel>
-                <RadioGroup defaultValue="" onChange={changeHandler}>
-                  {data.choices.map((option) => {
+                <FormLabel id="quiz-question">{props.data.question}</FormLabel>
+                <RadioGroup
+                  defaultValue=""
+                  onChange={changeHandler}
+                >
+                  {props.data.choices.map((option) => {
                     return (
                       <FormControlLabel
                         key={option.id}

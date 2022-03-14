@@ -49,8 +49,7 @@ function End({ results, data, time }) {
     let correct = 0;
     let incorrect = 0;
     let unAnswered = 0;
-    console.log(results);
-    results.map((result, index) => {
+    results.forEach((result, index) => {
       if (result.a === data[index].answer) {
         correct++;
       } else if (result.a === "") {
