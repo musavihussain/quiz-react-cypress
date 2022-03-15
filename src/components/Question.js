@@ -10,9 +10,9 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  Fade,
 } from "@mui/material";
 import AccessAlarmsIcon from "@mui/icons-material/AccessAlarms";
-import { Box } from "@mui/system";
 
 function Question(props) {
   const [selected, setSelected] = useState("");
@@ -63,12 +63,13 @@ function Question(props) {
   return (
     <Container sx={{ py: 5 }}>
       <Grid container justifyContent="center">
-        <Grid item xs={4}>
+        <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
-              <Box sx={{ display: "flex", mb: 3 }}>
-                <div>
+              <Grid container sx={{ mb: 3 }}>
+                <Grid xs={8}>
                   {props.showOptionRemoval && (
+                    <Fade in={props.showOptionRemoval} mountOnEnter unmountOnExit>
                     <Button
                       onClick={props.onRemoveWrongAnswers}
                       variant="contained"
@@ -78,21 +79,25 @@ function Question(props) {
                     >
                       Remove 2 wrong options
                     </Button>
+                    </Fade>
                   )}
-                </div>
-                <div>
+                </Grid>
+                <Grid xs={4} sx={{ textAlign: "right" }}>
                   {addMoreTime && (
-                    <Button
-                      variant="contained"
-                      color="secondary"
-                      size="small"
-                      onClick={addTenSecondHandler}
-                    >
-                      Add Time
-                    </Button>
+                    <Fade in={addMoreTime} mountOnEnter unmountOnExit>
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        size="small"
+                        onClick={addTenSecondHandler}
+                        style={{ transformOrigin: "0 0 0" }}
+                      >
+                        Add Time
+                      </Button>
+                    </Fade>
                   )}
-                </div>
-              </Box>
+                </Grid>
+              </Grid>
 
               <div
                 id="timer"
@@ -110,19 +115,17 @@ function Question(props) {
 
               <FormControl fullWidth>
                 <FormLabel id="quiz-question">{props.data.question}</FormLabel>
-                <RadioGroup
-                  defaultValue=""
-                  onChange={changeHandler}
-                >
+                <RadioGroup defaultValue="" onChange={changeHandler}>
+                  {}
                   {props.data.choices.map((option) => {
                     return (
-                      <FormControlLabel
-                        key={option.id}
-                        value={option.value}
-                        control={<Radio />}
-                        label={option.label}
-                        name="quiz-choices"
-                      />
+                        <FormControlLabel
+                          key={option.id}
+                          value={option.value}
+                          control={<Radio />}
+                          label={option.label}
+                          name="quiz-choices"
+                        />
                     );
                   })}
                 </RadioGroup>

@@ -65,7 +65,7 @@ function End({ results, data, time }) {
   return (
     <Container sx={{ py: 5 }}>
       <Grid container justifyContent="center">
-        <Grid item xs={4}>
+        <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
               <Typography variant="h5" textAlign={"center"}>

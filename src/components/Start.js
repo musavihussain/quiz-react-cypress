@@ -12,7 +12,7 @@ function Start({onQuizStart}) {
   return (
     <Container sx={{ py: 5 }} id="container">
       <Grid container justifyContent="center">
-        <Grid item xs={4} textAlign="center">
+        <Grid item xs={12} md={6} textAlign="center">
           <Card>
             <CardContent>
               <Typography variant="h5" color="text.secondary" gutterBottom>
