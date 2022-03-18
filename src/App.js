@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Question from "./components/Question";
-import Start from "./components/Start";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import quizDataJSON from "./data/quiz.json";
-import End from "./components/End";
 import { shuffle } from "lodash";
+
+const Start = lazy(() => import("./components/Start"));
+const Question = lazy(() => import("./components/Question"));
+const End = lazy(() => import("./components/End"));
 
 function App() {
   const [step, setStep] = useState(1);
@@ -58,7 +59,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       {step === 1 && <Start onQuizStart={quizStartHandler} />}
       {step === 2 && (
         <Question
@@ -73,7 +74,7 @@ function App() {
         />
       )}
       {step === 3 && <End results={answers} data={quizData} />}
-    </>
+    </Suspense>
   );
 }
 
