@@ -63,7 +63,7 @@ function Question(props) {
   return (
     <Container sx={{ py: 5 }}>
       <Grid container justifyContent="center">
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <Card>
             <CardContent>
               <Grid container sx={{ mb: 3 }}>
